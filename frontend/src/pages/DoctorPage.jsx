@@ -68,7 +68,7 @@ const DoctorPage = () => {
     setRefresh(!refresh); // ✅ Trigger slot refresh
     handleClose();
   };
-
+  console.log('dayjs().add(1, "MONTH")}',dayjs().add(1, "MONTH").format('YYYY-MM-DD'));
   const defaultImage =
     "https://img.freepik.com/free-vector/doctor-medical-healthcare-pfrofessional-character-vector_53876-175176.jpg?t=st=1740537937~exp=1740541537~hmac=457a588eb6191433d3d652a86e971830b45802b023e78dac697dee4e5f5a8f8d&w=740";
 
@@ -106,7 +106,8 @@ const DoctorPage = () => {
                   <DatePicker
                     label="Select Date"
                     value={selectedDate}
-                    minDate={dayjs()}
+                    minDate={moment()}
+                    maxDate={moment().add(1, "month")} // 1 month from today
                     onChange={(date) => setSelectedDate(date)}
                     renderInput={(params) => <TextField {...params} fullWidth />}
                   />
